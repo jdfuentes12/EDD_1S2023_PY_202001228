@@ -1,5 +1,9 @@
 package Estructura
 
+import (
+	"fmt"
+)
+
 type ListaDoble struct {
 	inicio   *Nodo
 	longitud int
@@ -38,6 +42,14 @@ func (l *ListaDoble) estaVacia() bool {
 func NewLista() *ListaDoble {
 	lista := new(ListaDoble)
 	lista.inicio = nil
-	lista.longitud = 0
 	return lista
+}
+
+func (l *ListaDoble) MostrarConsola() {
+	aux := l.inicio
+	for aux != nil {
+		fmt.Print(aux.estudiante.nombre," ")
+		fmt.Println(aux.estudiante.apellido)
+		aux = aux.siguiente
+	}
 }

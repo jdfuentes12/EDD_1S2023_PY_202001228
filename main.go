@@ -29,6 +29,8 @@ func main() {
 	*/
 	listaDoble := h.NewLista()
 	listaDoble.InsertarFinal("Jose", "Perez", 201801234, "1234")
+	listaDoble.InsertarFinal("Maria", "Perez", 201801234, "1234")
+	listaDoble.MostrarConsola()
 }
 
 func menuAdministrador() {
