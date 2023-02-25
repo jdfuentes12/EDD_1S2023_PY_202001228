@@ -11,9 +11,16 @@ import (
 	"strings"
 )
 
+var listaCola *h.ListaCola = h.NewCola()
+
+//var listaDoble *h.ListaDoble = h.NewListaDoble()
+
 // menu general
 func main() {
-	opcion := 0
+	//listaDoble.AgregarEstudiante("admin", "admin", 201801234, "admin")
+	//listaDoble.AgregarEstudiante("admin2", "admin2", 201801235, "admin2")
+	//listaDoble.MostrarLista()
+
 	salir := false
 
 	for !salir {
@@ -22,6 +29,7 @@ func main() {
 		fmt.Println("2. Cliente")
 		fmt.Println("3. Salir")
 		fmt.Println("Elige una opcion: ")
+		opcion := 0
 		fmt.Scanln(&opcion)
 
 		switch opcion {
@@ -40,7 +48,7 @@ func main() {
 
 // validar credenciales del administrador
 func seleccion_administrador() {
-	fmt.Println("Verificando credenciales")
+	fmt.Println("Ingrese sus credenciales")
 	usuario := ""
 	password := ""
 	fmt.Print("Usuario: ")
@@ -49,6 +57,7 @@ func seleccion_administrador() {
 	fmt.Scan(&password)
 
 	if usuario == "admin" && password == "admin" {
+		fmt.Println()
 		menuAdministrador()
 	} else {
 		fmt.Println("Usuario o password incorrecto")
@@ -62,7 +71,7 @@ func menuAdministrador() {
 	opcion := 0
 	salir := false
 	for !salir {
-		fmt.Println("----Esta en el Menu Administrador EDD GoDrive----")
+		fmt.Println("----Menu Administrador EDD GoDrive----")
 		fmt.Println("1. Ver estudiantes pedientes")
 		fmt.Println("2. Ver estudiantes del sistema")
 		fmt.Println("3. Registrar nuevo estudiante")
@@ -73,9 +82,11 @@ func menuAdministrador() {
 
 		switch opcion {
 		case 1:
-			fmt.Println("pendiente")
+			listaCola.MostrarCola()
+			fmt.Println()
 		case 2:
-			fmt.Println("pendiente")
+			listaCola.MostrarListaDoble()
+			fmt.Println()
 		case 3:
 			fmt.Println()
 			registroEstudiante()
@@ -93,7 +104,8 @@ func menuAdministrador() {
 
 // carga masiva de estudiantes
 func cargaMasiva() {
-	f, err := os.Open("Prueba.csv")
+
+	f, err := os.Open("Estudiante.csv")
 
 	if err != nil {
 		log.Fatal(err)
@@ -121,7 +133,7 @@ func cargaMasiva() {
 
 		carne1, err := strconv.Atoi(carne)
 		if err == nil {
-			fmt.Println(carne1)
+			fmt.Print("")
 		}
 
 		password = record[2]
@@ -131,14 +143,12 @@ func cargaMasiva() {
 		nombre = dato[0]
 		apellido = dato[1]
 
-		//fmt.Println(nombre)
-
-		listaDoble := h.NewLista()
-		listaDoble.InsertarFinal(nombre, apellido, carne1, password)
-
-		listaDoble.MostrarConsola()
+		listaCola.AgregarEstudiante(nombre, apellido, carne1, password)
 
 	}
+	fmt.Println("Carga masiva realizada con exito :)")
+	fmt.Println()
+	menuAdministrador()
 }
 
 // Registro manual de estudiantes
@@ -148,9 +158,8 @@ func registroEstudiante() {
 	carne := 0
 	password := ""
 
-	fmt.Println("----Registro de Estudiante----")
-	fmt.Println("Ingrese los siguientes datos: ")
-
+	fmt.Println("----Registro de Estudiante - EDD GoDrive----")
+	fmt.Println("Ingrese los siguientes datos")
 	fmt.Print("Nombre: ")
 	fmt.Scan(&nombre)
 	fmt.Print("Apellido: ")
@@ -159,14 +168,15 @@ func registroEstudiante() {
 	fmt.Scan(&carne)
 	fmt.Print("Password: ")
 	fmt.Scan(&password)
-	listaDoble := h.NewLista()
 
-	listaDoble.InsertarFinal(nombre, apellido, carne, password)
-	fmt.Println("Estudiante registrado con exito :)")
+	listaCola.AgregarEstudiante(nombre, apellido, carne, password)
+	fmt.Println("Estudiante registrado con exito :) ")
 	menuAdministrador()
 }
 
 func menuCliente() {
-	fmt.Println("Esta en el menu cliente")
-	fmt.Println("-----------------------")
+	fmt.Println("--- EDD GoDrive ---")
+	fmt.Println("1. Iniciar Sesion")
+	fmt.Println("2. Salir del sistema")
+
 }

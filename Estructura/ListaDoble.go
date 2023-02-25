@@ -5,52 +5,62 @@ import (
 )
 
 type ListaDoble struct {
-	inicio   *Nodo
-	longitud int
-}
-
-func (l *ListaDoble) InsertarFinal(nombre string, apellido string, carne int, password string) {
-	nuevoEstudiante := &Estudiante{nombre, apellido, carne, password}
-
-	if l.estaVacia() {
-		l.inicio = l.newNodo(nuevoEstudiante)
-		l.longitud++
-	} else {
-		aux := l.inicio
-		for aux.siguiente != nil {
-			aux = aux.siguiente
-		}
-		aux.siguiente = l.newNodo(nuevoEstudiante)
-		aux.siguiente.antes = aux
-	}
-}
-
-func (l *ListaDoble) newNodo(estudiante *Estudiante) *Nodo {
-	return &Nodo{estudiante, nil, nil}
+	Inicio   *Nodo_ListaDoble
+	Final    *Nodo_ListaDoble
+	Longitud int
 }
 
 func (l *ListaDoble) estaVacia() bool {
-	if l.longitud == 0 {
+	if l.Longitud == 0 {
 		return true
 	} else {
 		return false
 	}
 }
 
-// contructor de la lista doble
-func NewLista() *ListaDoble {
-	lista := new(ListaDoble)
-	lista.inicio = nil
-	return lista
+func (l *ListaDoble) newNodo(estudiante *Estudiante) *Nodo_ListaDoble {
+	return &Nodo_ListaDoble{estudiante, nil, nil}
 }
 
-func (l *ListaDoble) MostrarConsola() {
-	aux := l.inicio
+func NewListaDoble() *ListaDoble {
+	return &ListaDoble{nil, nil, 0}
+}
+
+func (c *ListaDoble) AgregarEstudiante_ListaDoble(nombre string, apellido string, carne int, password string) {
+	nuevoEstudiante := &Estudiante{nombre, apellido, carne, password}
+
+	fmt.Println("Estoy aca")
+
+	if c.estaVacia() {
+		nuevoNodo := c.newNodo(nuevoEstudiante)
+		c.Inicio = nuevoNodo
+		c.Final = nuevoNodo
+		fmt.Println("Estoy aca x2")
+
+	} else {
+		nuevoNodo := c.newNodo(nuevoEstudiante)
+		if c.Final.antes == nil {
+			nuevoNodo.antes = c.Inicio
+			c.Inicio.siguiente = nuevoNodo
+			c.Final = nuevoNodo
+		} else {
+			c.Final.siguiente = nuevoNodo
+			nuevoNodo.antes = c.Final
+			c.Final = nuevoNodo
+		}
+		fmt.Println("Estoy aca x3")
+	}
+	c.Longitud++
+	fmt.Println(c.Longitud)
+}
+
+func (c *ListaDoble) MostrarLista() {
+	aux := c.Inicio
+	fmt.Println("************ Lista de Estudiantes ************")
+	fmt.Println(c.Longitud)
 	for aux != nil {
-		fmt.Println("Nombre: ", aux.estudiante.nombre, " ", aux.estudiante.apellido)
-		fmt.Println("Carne: ", aux.estudiante.carne)
-		fmt.Println("password: ", aux.estudiante.pasword)
-		fmt.Println()
+		fmt.Println("Nombre: ", aux.estudiate.nombre, " ", aux.estudiate.apellido, " Carne: ", aux.estudiate.carne)
+		fmt.Println("**********************************************")
 		aux = aux.siguiente
 	}
 }
