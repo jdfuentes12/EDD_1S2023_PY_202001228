@@ -2,9 +2,11 @@ package Estructura
 
 import (
 	"fmt"
+	"time"
 )
 
 var listaDoble *ListaDoble = NewListaDoble()
+var aceptacion *Pila_Aceptacion = &Pila_Aceptacion{}
 
 type ListaCola struct {
 	Inicio   *Nodo_Cola
@@ -69,6 +71,7 @@ func (c *ListaCola) EliminarEstudiante() {
 func (c *ListaCola) MostrarCola() {
 	aux := c.Inicio
 	validacion := false
+
 	var opcion int
 	for aux != nil {
 
@@ -88,6 +91,9 @@ func (c *ListaCola) MostrarCola() {
 				fmt.Println()
 				fmt.Println(aux.estudiate_cola.nombre, " ", aux.estudiate_cola.apellido, " ", aux.estudiate_cola.carne, " ", aux.estudiate_cola.pasword)
 				listaDoble.AgregarEstudiante_ListaDoble(aux.estudiate_cola.nombre, aux.estudiate_cola.apellido, aux.estudiate_cola.carne, aux.estudiate_cola.pasword)
+				hora := hora()
+				fecha := fecha()
+				aceptacion.Push("Aceptado", fecha, hora)
 				aux = aux.siguiente
 				c.EliminarEstudiante()
 				break
@@ -96,6 +102,9 @@ func (c *ListaCola) MostrarCola() {
 				fmt.Println()
 				aux = aux.siguiente
 				c.EliminarEstudiante()
+				hora := hora()
+				fecha := fecha()
+				aceptacion.Push("Rechazado", fecha, hora)
 				break
 			case 3:
 				validacion = true
@@ -112,4 +121,17 @@ func (c *ListaCola) MostrarCola() {
 
 func (c *ListaCola) MostrarListaDoble() {
 	listaDoble.MostrarLista()
+	fmt.Println()
+	//aceptacion.MostrarPilaAceptacion()
+	aceptacion.Graficar()
+}
+
+func hora() string {
+	horaActual := time.Now()
+	return horaActual.Format("15:04:05")
+}
+
+func fecha() string {
+	fechaActual := time.Now()
+	return fechaActual.Format("2006-01-02")
 }

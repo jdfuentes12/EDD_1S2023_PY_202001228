@@ -29,13 +29,10 @@ func NewListaDoble() *ListaDoble {
 func (c *ListaDoble) AgregarEstudiante_ListaDoble(nombre string, apellido string, carne int, password string) {
 	nuevoEstudiante := &Estudiante{nombre, apellido, carne, password}
 
-	fmt.Println("Estoy aca")
-
 	if c.estaVacia() {
 		nuevoNodo := c.newNodo(nuevoEstudiante)
 		c.Inicio = nuevoNodo
 		c.Final = nuevoNodo
-		fmt.Println("Estoy aca x2")
 
 	} else {
 		nuevoNodo := c.newNodo(nuevoEstudiante)
@@ -48,10 +45,8 @@ func (c *ListaDoble) AgregarEstudiante_ListaDoble(nombre string, apellido string
 			nuevoNodo.antes = c.Final
 			c.Final = nuevoNodo
 		}
-		fmt.Println("Estoy aca x3")
 	}
 	c.Longitud++
-	fmt.Println(c.Longitud)
 }
 
 func (c *ListaDoble) MostrarLista() {

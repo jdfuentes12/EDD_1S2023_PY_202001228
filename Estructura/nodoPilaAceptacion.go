@@ -1,7 +1,7 @@
 package Estructura
 
 type Nodo_Acetacion struct {
-	apectacion *Aceptacion
+	aceptacion *Aceptacion
 	siguiente  *Nodo_Acetacion
 	antes      *Nodo_Acetacion
 }
