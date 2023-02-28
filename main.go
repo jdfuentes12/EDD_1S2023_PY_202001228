@@ -13,13 +13,7 @@ import (
 
 var listaCola *h.ListaCola = h.NewCola()
 
-//var listaDoble *h.ListaDoble = h.NewListaDoble()
-
-// menu general
 func main() {
-	//listaDoble.AgregarEstudiante("admin", "admin", 201801234, "admin")
-	//listaDoble.AgregarEstudiante("admin2", "admin2", 201801235, "admin2")
-	//listaDoble.MostrarLista()
 
 	salir := false
 
@@ -48,6 +42,7 @@ func main() {
 
 // validar credenciales del administrador
 func seleccion_administrador() {
+	validar := false
 	fmt.Println("Ingrese sus credenciales")
 	usuario := ""
 	password := ""
@@ -56,10 +51,14 @@ func seleccion_administrador() {
 	fmt.Print("Password: ")
 	fmt.Scan(&password)
 
+	//validar = listaCola.ValidarUsuario(usuario, password)
+
 	if usuario == "admin" && password == "admin" {
 		fmt.Println()
 		menuAdministrador()
-	} else {
+	}
+
+	if validar {
 		fmt.Println("Usuario o password incorrecto")
 		fmt.Println()
 		main()
@@ -86,6 +85,7 @@ func menuAdministrador() {
 			fmt.Println()
 		case 2:
 			listaCola.MostrarListaDoble()
+			listaCola.GraficarCola()
 			fmt.Println()
 		case 3:
 			fmt.Println()
@@ -178,5 +178,4 @@ func menuCliente() {
 	fmt.Println("--- EDD GoDrive ---")
 	fmt.Println("1. Iniciar Sesion")
 	fmt.Println("2. Salir del sistema")
-
 }

@@ -19,7 +19,7 @@ func (l *ListaDoble) estaVacia() bool {
 }
 
 func (l *ListaDoble) newNodo(estudiante *Estudiante) *Nodo_ListaDoble {
-	return &Nodo_ListaDoble{estudiante, nil, nil}
+	return &Nodo_ListaDoble{estudiante, nil, nil, nil}
 }
 
 func NewListaDoble() *ListaDoble {
@@ -52,10 +52,20 @@ func (c *ListaDoble) AgregarEstudiante_ListaDoble(nombre string, apellido string
 func (c *ListaDoble) MostrarLista() {
 	aux := c.Inicio
 	fmt.Println("************ Lista de Estudiantes ************")
-	fmt.Println(c.Longitud)
 	for aux != nil {
 		fmt.Println("Nombre: ", aux.estudiate.nombre, " ", aux.estudiate.apellido, " Carne: ", aux.estudiate.carne)
 		fmt.Println("**********************************************")
 		aux = aux.siguiente
 	}
+}
+
+func (c *ListaCola) ValidarUsuario(carne int, password string) bool {
+	aux := c.Inicio
+	for aux != nil {
+		if aux.estudiate_cola.carne == carne && aux.estudiate_cola.pasword == password {
+			return true
+		}
+		aux = aux.siguiente
+	}
+	return false
 }

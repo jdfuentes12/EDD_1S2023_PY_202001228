@@ -31,15 +31,6 @@ func (p *Pila_Aceptacion) Push(estado string, fecha string, hora string) {
 	p.Longitud++
 }
 
-func (p *Pila_Aceptacion) Pop() {
-	if p.estaVacia() {
-		return
-	} else {
-		p.Primero = p.Primero.siguiente
-	}
-	p.Longitud--
-}
-
 func (p *Pila_Aceptacion) MostrarPilaAceptacion() {
 	aux := p.Primero
 	for aux != nil {
