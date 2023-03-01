@@ -38,9 +38,9 @@ Pequeño fracmento de codigo para la lectura del csv, por estetica no se agregar
 Por medio de una cola, se establecen todos los usuarios que son candidatos para agregarlos al sistema de "EDD -GoDrive" con el cual se aceptara o rechazara el estudiante, si se rechaza automaticamente se eliminara del sistema de cola y no se agregara al sistema, pero si se agrega tambien se eliminara de la cola pero se agregara al sistema por medio de una lista doble. <br>
 Pequeño fracmento de codigo para agregar los estudiantes al sistema de "EDD - GoDrive"<br>
 
-<img align='center' src="https://user-images.githubusercontent.com/88565998/222050462-bec30caf-ebeb-43b8-955e-088c641cd7f4.png" width="230"><br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222050462-bec30caf-ebeb-43b8-955e-088c641cd7f4.png" width="500"><br>
 Pequeño fracmento de codigo para rechazar los estudiantes del sistema definitivamente<br>
-<img align='center' src="https://user-images.githubusercontent.com/88565998/222050723-d20d55e0-e14e-4ccc-a8c1-aa0c1a333360.png" width="230"><br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222050723-d20d55e0-e14e-4ccc-a8c1-aa0c1a333360.png" width="350"><br>
 
 
 
@@ -50,5 +50,8 @@ De igual manera se podra observar por medio de reportes la cola de estudiantes q
 
 De igual manera cuando se acepte o rechace algun estudiante aparecera en una pila la cual contendra la hora que se rechazo o acepto el estudiante.<br>
 <img align='center' src="https://user-images.githubusercontent.com/88565998/222048860-43108232-c14b-4b7f-97fe-2560b4b30d0e.png" width="380"><br>
+
+Tambien se podra observar las lista de los estudiantes que fueron asigandos al sistema.<br>
+
 
 
