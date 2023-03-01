@@ -58,5 +58,7 @@ Tambien se podra observar las lista de los estudiantes que fueron asigandos al s
 
 ### Inision de sesion
 En esta parte despues de ser aceptado el estudiante en el sistema podra iniciar sesion por medio de su carne y password. Se mostrala las validadciones que se hicieorn para verificar si las credenciales ingresadas son correctas o no.<br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222052856-bebe42b7-481f-4fe7-93dd-b319cdd1e4a4.png" width="750"><br>
+
 
 
