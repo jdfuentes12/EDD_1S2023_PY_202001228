@@ -27,4 +27,7 @@ Por medio de la importacion de "encoding/csv" se pudo realizar la lectura del ar
 
 ### Agregar estudiante al sistema
 Por medio de una cola, se establecen todos los usuarios que son candidatos para agregarlos al sistema de "EDD -GoDrive" con el cual se aceptara o rechazara el estudiante, si se rechaza automaticamente se eliminara del sistema de cola y no se agregara al sistema, pero si se agrega tambien se eliminara de la cola pero se agregara al sistema por medio de una lista doble. 
-De igual manera se podra observar por medio de reportes la cola de estudiantes que aun no se han aceptado. 
+De igual manera se podra observar por medio de reportes la cola de estudiantes que aun no se han aceptado. <br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222048047-273014bf-d57d-4bbe-ac74-f9bba0d2e752.png" width="500"><br>
+
+De igual manera cuando se acepte o rechace algun estudiante aparecera en una pila la cual contendra la hora que se rechazo o acepto el estudiante.
