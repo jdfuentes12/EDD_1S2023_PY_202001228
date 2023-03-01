@@ -19,6 +19,10 @@ A demas se uno una carpeta llamada "Estructura" la cual contiene los nodos y con
 <br>
 Para poder acceder a la carpetad de estructuras se uso un comando para que se puedan implementar en otodo el proyecto y ademas no de error a la hora de compilarlo. El comando es "go mod init (y el nombre que se le quiera colocar a la estructura)" 
 <br>
+
+
+
+
 ### Main
 A continucacion se le presentará una imagen con las importaciones necesarias para poder ejecutarse en el main correctamente. <br>
 <img align='center' src="https://user-images.githubusercontent.com/88565998/222045149-f0c93349-8911-42c2-8797-9892f8f97766.png" width="230"><br>
@@ -30,4 +34,7 @@ Por medio de una cola, se establecen todos los usuarios que son candidatos para 
 De igual manera se podra observar por medio de reportes la cola de estudiantes que aun no se han aceptado. <br>
 <img align='center' src="https://user-images.githubusercontent.com/88565998/222048047-273014bf-d57d-4bbe-ac74-f9bba0d2e752.png" width="500"><br>
 
-De igual manera cuando se acepte o rechace algun estudiante aparecera en una pila la cual contendra la hora que se rechazo o acepto el estudiante.
+De igual manera cuando se acepte o rechace algun estudiante aparecera en una pila la cual contendra la hora que se rechazo o acepto el estudiante.<br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222048860-43108232-c14b-4b7f-97fe-2560b4b30d0e.png" width="380"><br>
+
+
