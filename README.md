@@ -49,9 +49,14 @@ De igual manera se podra observar por medio de reportes la cola de estudiantes q
 <img align='center' src="https://user-images.githubusercontent.com/88565998/222048047-273014bf-d57d-4bbe-ac74-f9bba0d2e752.png" width="500"><br>
 
 De igual manera cuando se acepte o rechace algun estudiante aparecera en una pila la cual contendra la hora que se rechazo o acepto el estudiante.<br>
-<img align='center' src="https://user-images.githubusercontent.com/88565998/222048860-43108232-c14b-4b7f-97fe-2560b4b30d0e.png" width="380"><br>
+
+
 
 Tambien se podra observar las lista de los estudiantes que fueron asigandos al sistema.<br>
 
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222051698-602eb33c-646b-489d-93a5-eaea96faee1a.png" width="750"><br>
+
+### Inision de sesion
+En esta parte despues de ser aceptado el estudiante en el sistema podra iniciar sesion por medio de su carne y password. Se mostrala las validadciones que se hicieorn para verificar si las credenciales ingresadas son correctas o no.<br>
 
 
