@@ -58,15 +58,18 @@ Tambien se podra observar las lista de los estudiantes que fueron asigandos al s
 
 ### Inision de sesion
 En esta parte despues de ser aceptado el estudiante en el sistema podra iniciar sesion por medio de su carne y password. Se mostrala las validadciones que se hicieorn para verificar si las credenciales ingresadas son correctas o no.<br>
-<img align='center' src="https://user-images.githubusercontent.com/88565998/222052856-bebe42b7-481f-4fe7-93dd-b319cdd1e4a4.png" width="750"><br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222052856-bebe42b7-481f-4fe7-93dd-b319cdd1e4a4.png" width="500"><br>
 
 ### Ordenamiento
 Tambien se tiene ordenan los estudiantes por el numero de carne que tienen.
-<img align='center' src="https://user-images.githubusercontent.com/88565998/222053129-4e7ab847-67be-4b13-8f97-f7dd21e18837.png" width="750"><br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222053129-4e7ab847-67be-4b13-8f97-f7dd21e18837.png" width="500"><br>
 
 ### Graficar 
 Tambien por medio de la herramienta de graphiz podemos visualizar los usuarios que se encuentran en la pila, cola y la lista doble.<br>
-<img align='center' src="https://user-images.githubusercontent.com/88565998/222053550-dfd0d964-2ad5-4c6c-bcd9-40c41100d038.png" width="750"><br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222053550-dfd0d964-2ad5-4c6c-bcd9-40c41100d038.png" width="500"><br>
 
+### JSON
+Tambien se escribio todos los datos aceptados en un archivo json. <br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222053829-a20e58bd-a8cd-4484-8473-c756ab1ae814.png" width="350"><br>
 
 
