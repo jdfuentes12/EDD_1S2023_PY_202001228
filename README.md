@@ -66,6 +66,7 @@ Tambien se tiene ordenan los estudiantes por el numero de carne que tienen.
 
 ### Graficar 
 Tambien por medio de la herramienta de graphiz podemos visualizar los usuarios que se encuentran en la pila, cola y la lista doble.<br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/222053550-dfd0d964-2ad5-4c6c-bcd9-40c41100d038.png" width="750"><br>
 
 
 
