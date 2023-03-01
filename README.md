@@ -35,6 +35,9 @@ https://user-images.githubusercontent.com/88565998/222049794-90043419-f28e-4c1f-
 ### Agregar estudiante al sistema
 Por medio de una cola, se establecen todos los usuarios que son candidatos para agregarlos al sistema de "EDD -GoDrive" con el cual se aceptara o rechazara el estudiante, si se rechaza automaticamente se eliminara del sistema de cola y no se agregara al sistema, pero si se agrega tambien se eliminara de la cola pero se agregara al sistema por medio de una lista doble. <br>
 Pequeño fracmento de codigo para agregar los estudiantes al sistema de "EDD - GoDrive"<br>
+https://user-images.githubusercontent.com/88565998/222050462-bec30caf-ebeb-43b8-955e-088c641cd7f4.png<br>
+Pequeño fracmento de codigo para rechazar los estudiantes del sistema definitivamente<br>
+
 
 
 
