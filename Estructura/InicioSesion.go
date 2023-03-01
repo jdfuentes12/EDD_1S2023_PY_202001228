@@ -1,9 +1,5 @@
 package Estructura
 
-import (
-	"fmt"
-)
-
 type Pila_Session struct {
 	Primero  *Nodo_Sesion
 	Longitud int
@@ -17,19 +13,21 @@ func (p *Pila_Session) estaVacia() bool {
 	}
 }
 
-func (p *Pila_Session) Push(estado string, fecha string, hora string) {
-	if p.estaVacia() {
-		p.Primero = &Nodo_Sesion{fecha, hora, nil}
-	} else {
-		nuevoNodo := &Nodo_Sesion{fecha, hora, p.Primero}
-		p.Primero = nuevoNodo
-	}
+func NewNodoPila(fecha string, hora string, identificador string) *Nodo_Sesion {
+	return &Nodo_Sesion{fecha, hora, identificador, nil}
 }
 
-func (p *Pila_Session) MostrarPilaSession() {
-	aux := p.Primero
-	for aux != nil {
-		fmt.Println(aux.fecha, aux.hora)
-		aux = aux.siguiente
+func NewPilaSession() *Pila_Session {
+	return &Pila_Session{nil, 0}
+}
+
+func (p *Pila_Session) InicioSesion(fecha string, hora string, identificador string) {
+	if p.estaVacia() {
+		p.Primero = &Nodo_Sesion{fecha, hora, identificador, nil}
+		p.Longitud++
+	} else {
+		nuevoNodo := &Nodo_Sesion{fecha, hora, identificador, p.Primero}
+		p.Primero = nuevoNodo
+		p.Longitud++
 	}
 }

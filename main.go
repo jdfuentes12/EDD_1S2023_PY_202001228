@@ -19,9 +19,8 @@ func main() {
 
 	for !salir {
 		fmt.Println("----Bienvenido a la aplicacion EDD GoDrive----")
-		fmt.Println("1. Administrador")
-		fmt.Println("2. Cliente")
-		fmt.Println("3. Salir")
+		fmt.Println("1. Inisiar sesion")
+		fmt.Println("2. Salir")
 		fmt.Println("Elige una opcion: ")
 		opcion := 0
 		fmt.Scanln(&opcion)
@@ -31,9 +30,6 @@ func main() {
 			fmt.Println()
 			seleccion_administrador()
 		case 2:
-			fmt.Println()
-			menuCliente()
-		case 3:
 			fmt.Println("Saliendo de la aplicacion")
 			salir = true
 		}
@@ -42,26 +38,33 @@ func main() {
 
 // validar credenciales del administrador
 func seleccion_administrador() {
-	validar := false
-	fmt.Println("Ingrese sus credenciales")
-	usuario := ""
-	password := ""
-	fmt.Print("Usuario: ")
-	fmt.Scan(&usuario)
-	fmt.Print("Password: ")
-	fmt.Scan(&password)
+	salir := false
 
-	//validar = listaCola.ValidarUsuario(usuario, password)
+	for !salir {
+		fmt.Println("Ingrese sus credenciales")
+		usuario := ""
+		password := ""
+		fmt.Print("Usuario: ")
+		fmt.Scan(&usuario)
+		fmt.Print("Password: ")
+		fmt.Scan(&password)
 
-	if usuario == "admin" && password == "admin" {
-		fmt.Println()
-		menuAdministrador()
-	}
+		if usuario == "admin" && password == "admin" {
+			fmt.Println()
+			menuAdministrador()
+		}
 
-	if validar {
-		fmt.Println("Usuario o password incorrecto")
-		fmt.Println()
-		main()
+		validar := listaCola.Validar(usuario, password)
+
+		if validar {
+			fmt.Println()
+			menuEstudiante()
+
+		} else {
+			fmt.Println("Usuario o password incorrecto")
+			fmt.Println()
+			main()
+		}
 	}
 }
 
@@ -75,7 +78,10 @@ func menuAdministrador() {
 		fmt.Println("2. Ver estudiantes del sistema")
 		fmt.Println("3. Registrar nuevo estudiante")
 		fmt.Println("4. Carga masiva de estudiantes")
-		fmt.Println("5. Salir")
+		fmt.Println("5. Graficar Cola")
+		fmt.Println("6. Graficar Aceptacion de estudiantes")
+		fmt.Println("7. Graficar Lista Doble")
+		fmt.Println("8. Salir")
 		fmt.Println("Elige una opcion: ")
 		fmt.Scan(&opcion)
 
@@ -85,7 +91,6 @@ func menuAdministrador() {
 			fmt.Println()
 		case 2:
 			listaCola.MostrarListaDoble()
-			listaCola.GraficarCola()
 			fmt.Println()
 		case 3:
 			fmt.Println()
@@ -94,11 +99,21 @@ func menuAdministrador() {
 			fmt.Println()
 			cargaMasiva()
 		case 5:
+			listaCola.GraficarCola()
+		case 6:
+			listaCola.GraficarAceptacion()
+		case 7:
+			fmt.Println("pendiente")
+		case 8:
 			fmt.Println("Saliendo de la aplicacion")
 			salir = true
+
 		default:
 			fmt.Println("Opcion no valida")
 		}
+	}
+	if opcion == 5 {
+		main()
 	}
 }
 
@@ -171,11 +186,12 @@ func registroEstudiante() {
 
 	listaCola.AgregarEstudiante(nombre, apellido, carne, password)
 	fmt.Println("Estudiante registrado con exito :) ")
+	fmt.Println()
 	menuAdministrador()
 }
 
-func menuCliente() {
-	fmt.Println("--- EDD GoDrive ---")
-	fmt.Println("1. Iniciar Sesion")
-	fmt.Println("2. Salir del sistema")
+func menuEstudiante() {
+	opcion := 0
+	fmt.Println("1. Salir")
+	fmt.Scan(&opcion)
 }

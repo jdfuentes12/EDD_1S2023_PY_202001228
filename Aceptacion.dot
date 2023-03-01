@@ -1,0 +1,17 @@
+digraph G {
+node [shape= record, height = 0.5]
+nodo0[label = "<f0>Aceptado|<f1> 2023-02-28|<f2> 20:04:25"]
+nodo1[label = "<f0>Aceptado|<f1> 2023-02-28|<f2> 20:04:25"]
+nodo2[label = "<f0>Aceptado|<f1> 2023-02-28|<f2> 20:04:24"]
+empty [label="Pila"]
+nodo0:f0 -> empty
+nodo1:f0 -> nodo0:f1
+nodo2:f0 -> nodo1:f1
+}ceptado|<f1> 2023-02-28|<f2> 18:44:14"]
+empty [label="Pila"]
+nodo0:f0 -> empty
+nodo1:f0 -> nodo0:f1
+nodo2:f0 -> nodo1:f1
+nodo3:f0 -> nodo2:f1
+nodo4:f0 -> nodo3:f1
+}
