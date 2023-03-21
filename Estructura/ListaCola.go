@@ -75,10 +75,16 @@ func (c *ListaCola) EliminarEstudiante() {
 func (c *ListaCola) MostrarCola() {
 	aux := c.Inicio
 	validacion := false
+	if c.Longitud == 0 {
+		fmt.Println("No hay estudiantes en la cola")
+		fmt.Println()
+		return
+	}
 
 	var opcion int
 	for aux != nil {
 		for aux != nil {
+
 			fmt.Println("-------Hay en cola: ", c.Longitud, " estudiantes-------")
 			fmt.Println("Estudiante Actual: ", aux.estudiate_cola.nombre, " ", aux.estudiate_cola.apellido)
 			fmt.Println("1. Aceptar al estudiante")
@@ -87,6 +93,7 @@ func (c *ListaCola) MostrarCola() {
 			fmt.Println("Ingrese una opcion: ")
 
 			fmt.Scan(&opcion)
+
 			switch opcion {
 
 			case 1:
@@ -96,17 +103,28 @@ func (c *ListaCola) MostrarCola() {
 				hora := hora()
 				fecha := fecha()
 				aceptacion.Push("Aceptado", fecha, hora)
+				if aux.siguiente == nil {
+					validacion = true
+					fmt.Println("No hay mas estudiantes en la cola")
+					return
+				}
 				aux = aux.siguiente
 				c.EliminarEstudiante()
 				break
 			case 2:
 				fmt.Println("El estudiante ha sido rechazado")
 				fmt.Println()
-				aux = aux.siguiente
+
 				c.EliminarEstudiante()
 				hora := hora()
 				fecha := fecha()
 				aceptacion.Push("Rechazado", fecha, hora)
+				if aux.siguiente == nil {
+					validacion = true
+					fmt.Println("No hay mas estudiantes en la cola")
+					return
+				}
+				aux = aux.siguiente
 				break
 			case 3:
 				validacion = true
@@ -115,8 +133,6 @@ func (c *ListaCola) MostrarCola() {
 		}
 		if validacion {
 			return
-		} else {
-			aux = aux.siguiente
 		}
 	}
 }
@@ -124,8 +140,11 @@ func (c *ListaCola) MostrarCola() {
 func (c *ListaCola) MostrarListaDoble() {
 	listaDoble.MostrarLista()
 	fmt.Println()
-	//aceptacion.MostrarPilaAceptacion()
+}
+
+func (c *ListaCola) GraficarAceptacion() {
 	aceptacion.Graficar()
+
 }
 
 func hora() string {
@@ -206,4 +225,12 @@ func ejecutarCola(nombre_imagen string, archivo_dot string) {
 	cmd, _ := exec.Command(path, "-Tjpg", archivo_dot).Output()
 	mode := 0777
 	_ = ioutil.WriteFile(nombre_imagen, cmd, os.FileMode(mode))
+}
+
+func (c *ListaCola) Validar(id string, password string) bool {
+	validar := listaDoble.InicioSesion(id, password)
+	if validar == true {
+		return true
+	}
+	return false
 }
