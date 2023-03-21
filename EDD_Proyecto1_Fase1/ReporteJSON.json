@@ -1,0 +1,22 @@
+{
+	"Alumnos": [
+		{
+			"Carnet": "201403877",
+			"Nombre": "Ebany Larios",
+			"Password": "qwerty12",
+			"Carpeta_Raiz": "/"
+		},
+		{
+			"Carnet": "201700918",
+			"Nombre": "Cristian Suy",
+			"Password": "Cris123",
+			"Carpeta_Raiz": "/"
+		},
+		{
+			"Carnet": "202001228",
+			"Nombre": "jose fuentes",
+			"Password": "123",
+			"Carpeta_Raiz": "/"
+		},
+]
+}
