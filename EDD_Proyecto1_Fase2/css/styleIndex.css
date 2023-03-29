@@ -8,6 +8,7 @@ body{
  font-family: sans-serif;
  background: linear-gradient(#1a2a42,#223e5e,#27547c);
 }
+
  
 .container{
     position: absolute;
@@ -48,7 +49,7 @@ body{
 
 .container .descripcion .video{
     position: absolute;
-    left:350px;
+    left:370px;
 }
 
 .container .boton{
