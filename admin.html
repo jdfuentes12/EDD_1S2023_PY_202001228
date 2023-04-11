@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Administrador</title>
+    <link rel="stylesheet" href="EDD_Proyecto1_Fase2/css/styleAdmin.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="button" id="botones">
+          <form action="" id="CargaMasiva" onsubmit="carga_Masiva(event)">
+            <input type="file" name="inputFile" id="admin" name="admin" aria-label="Archivo">
+            <br>
+            <br>
+            <button type="submit" for="admin" onclick="carga_Masiva()" >
+              <span>Carga Masiva</span>
+            </button>
+          </form>
+          <br>
+            <button >
+              <span>Mostrar Alumnos</span>
+            </button>
+            <br>
+            <button >
+              <span>Árbl de estudiantes</span>
+            </button>
+            <br>
+            <button onclick="salir()">
+              <span>Cerrar Sesion</span>
+            </button>
+        </div>
+    </div>
+    <div class="card">
+      <div class="tools">
+        <div class="circle">
+          <span class="red box"></span>
+        </div>
+        <div class="circle">
+          <span class="yellow box"></span>
+        </div>
+        <div class="circle">
+          <span class="green box"></span>
+        </div>
+      </div>
+      <div class="card__content">
+      </div>
+    </div>
+    <script src="EDD_Proyecto1_Fase2/js/Avl.js"></script>
+    <script src="EDD_Proyecto1_Fase2/js/admin.js"></script>
+  </body>
+</html>

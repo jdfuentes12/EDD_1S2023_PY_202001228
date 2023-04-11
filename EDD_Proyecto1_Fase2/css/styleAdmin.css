@@ -24,7 +24,13 @@ body {
 
 }
 
-button {
+.container .button .archivo{
+  position: relative;
+  display: inline-block;
+  content: "Archivo";
+}
+
+button, .button a {
     position: relative;
     margin: 0;
     padding: 0.8em 1em;
@@ -47,7 +53,7 @@ button {
     transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
   }
   
-  button:hover {
+  button:hover, .button a:hover {
     animation: sh0 0.5s ease-in-out both;
   }
   
