@@ -1,0 +1,146 @@
+digraph G{
+rankdir=LR;
+node [shape=cicle];
+0[label = "Lourdes Reyes
+201902259"];
+1[label = "Alejandro Caballeros
+201903549"];
+2[label = "Jonatan Gonzalez
+201900570"];
+3[label = "Kevyn Giron
+201700653"];
+4[label = "Eduardo Cuevas
+202004703"];
+5[label = "Roberto Gomez
+202000544"];
+6[label = "Sebastian Godoy
+202002940"];
+7[label = "Juan Augusto
+201801683"];
+8[label = "Bryan Montepeque
+201700375"];
+0->1;
+1->2;
+2->3;
+3->4;
+4->5;
+5->6;
+6->7;
+7->8;
+8->9;
+}Kevin Garc�a
+202113553"];
+11[label = "Diego Huite
+202003585"];
+12[label = "Josue Porres
+202112026"];
+13[label = "Sergio Ralda
+202103216"];
+14[label = "Juan Valle
+202101648"];
+15[label = "Jose Melendez
+201325511"];
+16[label = "Ethel Herrarte
+200819325"];
+17[label = "Sergio Guix
+201906468"];
+18[label = "Jos� Donis
+201801444"];
+19[label = "Marvin Castellanos
+201700490"];
+20[label = "Ludwing Lopez
+201907608"];
+21[label = "Sergio Bucaro
+201800673"];
+22[label = "Christian Esquite
+200819074"];
+23[label = "Luis Yaquian
+202001471"];
+24[label = "Luis Lizama
+202010023"];
+25[label = "Olivert Vargas
+201503617"];
+26[label = "Jos� Ibarra
+202001800"];
+27[label = "Mauricio Castro
+202100299"];
+28[label = "Velveth P�rez
+202010810"];
+29[label = "Miguel Sac
+201222535"];
+30[label = "Jos� Panaza
+202111478"];
+31[label = "Pablo Fern�ndez
+201807411"];
+32[label = "Henderson Hernandez
+201019694"];
+33[label = "A�da Mansilla
+202100239"];
+34[label = "Jeser Rodas
+202105561"];
+35[label = "Anthony Zea
+202104782"];
+36[label = "Julio Fern�ndez
+201902416"];
+37[label = "Hugo Giron
+202004807"];
+38[label = "Mario Lopez
+202109554"];
+0->1;
+1->2;
+2->3;
+3->4;
+4->5;
+5->6;
+6->7;
+7->8;
+8->9;
+9->10;
+10->11;
+11->12;
+12->13;
+13->14;
+14->15;
+15->16;
+16->17;
+17->18;
+18->19;
+19->20;
+20->21;
+21->22;
+22->23;
+23->24;
+24->25;
+25->26;
+26->27;
+27->28;
+28->29;
+29->30;
+30->31;
+31->32;
+32->33;
+33->34;
+34->35;
+35->36;
+}->22;
+22->23;
+23->24;
+24->25;
+25->26;
+26->27;
+27->28;
+28->29;
+29->30;
+30->31;
+31->32;
+32->33;
+33->34;
+34->35;
+35->36;
+36->37;
+37->38;
+38->39;
+39->40;
+40->41;
+41->42;
+}
