@@ -33,11 +33,12 @@ El modulo de login se usara para validar las credenciales de cada uno de los usu
 ## MANUAL USUARIO
 EDD Go-Drive es un sistema de almacenamiento para los estudiantes y poder organizar sus documentos. Esta es la pagina de bienvenida a la aplicacion.
 <br>
-<img align='center' src="https://user-images.githubusercontent.com/88565998/231063559-ac3aef41-66a0-4ff8-8141-74b44c3f756a.png" width="400"><br>
+
+![image](https://user-images.githubusercontent.com/88565998/231063559-ac3aef41-66a0-4ff8-8141-74b44c3f756a.png)
 
 <br>
 Al darle el inicio de sesion nos redijira a otra pagina para logearnos y si colocamos mal las credenciales nos dira que la ingresamos mal y que lo volvamos a intentar.
-<img align='center' src=https://user-images.githubusercontent.com/88565998/231063783-21bf2f12-81e3-4482-b1f4-e9c9c1dffc64.png" width="400"><br>
+<img align='center' src="https://user-images.githubusercontent.com/88565998/231063783-21bf2f12-81e3-4482-b1f4-e9c9c1dffc64.png" width="400"><br>
 <br>
 
 En el modo administrador podremos ver las diferentes opciones y a demas podremos cargar un archivo json para poder almacenar los estudiantes en el sistema para que accedan a el.<br>
