@@ -37,7 +37,7 @@ EDD Go-Drive es un sistema de almacenamiento para los estudiantes y poder organi
 
 <br>
 Al darle el inicio de sesion nos redijira a otra pagina para logearnos y si colocamos mal las credenciales nos dira que la ingresamos mal y que lo volvamos a intentar.
-![image](https://user-images.githubusercontent.com/88565998/231063783-21bf2f12-81e3-4482-b1f4-e9c9c1dffc64.png)
+<img align='center' src=https://user-images.githubusercontent.com/88565998/231063783-21bf2f12-81e3-4482-b1f4-e9c9c1dffc64.png" width="400"><br>
 <br>
 
 En el modo administrador podremos ver las diferentes opciones y a demas podremos cargar un archivo json para poder almacenar los estudiantes en el sistema para que accedan a el.<br>
