@@ -3,6 +3,9 @@
   <head>
     <title>Administrador</title>
     <link rel="stylesheet" href="EDD_Proyecto1_Fase2/css/styleAdmin.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -16,7 +19,7 @@
             </button>
           </form>
           <br>
-            <button >
+            <button onclick="impresion()">
               <span>Mostrar Alumnos</span>
             </button>
             <br>
@@ -24,11 +27,16 @@
               <span>Árbl de estudiantes</span>
             </button>
             <br>
+            <button onclick="acualizar()">
+              <span>Actualizar tabla</span>
+            </button>
+            <br>
             <button onclick="salir()">
               <span>Cerrar Sesion</span>
             </button>
         </div>
     </div>
+    
     <div class="card">
       <div class="tools">
         <div class="circle">
@@ -41,7 +49,36 @@
           <span class="green box"></span>
         </div>
       </div>
-      <div class="card__content">
+      
+      <div class="card__content" >
+        <h3>Usuarios en el sistema</h3>
+        <div class="contenido">
+          <table class="table">
+            <thead>
+              <tr> 
+                <th>Carnet</th>
+                <th>Nombre</th>
+                <th>Contraseña</th>
+              </tr>
+            </thead>
+            <tbody id="tablaEstudiantes">
+              
+            </tbody>
+          </table>
+        </div>
+        <h3>Permisos</h3>
+        <div class="contenido">
+          <table class="table">
+            <thead>
+              <tr> 
+                <th>Propietario</th>
+                <th>Destino</th>
+                <th>Ubicacion</th>
+                <th>Archivo</th>
+                <th>Permisos</th>
+              </tr>
+          </table>
+        </div>
       </div>
     </div>
     <script src="EDD_Proyecto1_Fase2/js/Avl.js"></script>

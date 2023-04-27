@@ -1,11 +1,18 @@
 class nodoArbol {
     constructor(nombre, carne,password,carpetaRaiz){
-        this.izquierdo = null;
-        this.derecho = null;
         this.carne = carne;
         this.nombre = nombre;
         this.password = password;
         this.carpetaRaiz = carpetaRaiz;
+    }
+}
+
+class Nodo{
+    constructor(usuario){
+        this.usuario = usuario;
+        this.izquierdo = null;
+        this.derecho = null;
+        this.altura = 0;
     }
 }
 
@@ -14,210 +21,104 @@ class Arbol {
         this.raiz = null;
     }
     
-    insertarNodo(nodo, raiz){
-        if(raiz === null){
-            raiz = nodo;
+    insertar(usuario){
+        this.raiz = this.agregarUsuario(usuario, this.raiz);
+    }
+
+    agregarUsuario(usuario,raiz){
+        if(raiz == null){
+            return new Nodo(usuario);
+        }
+        if(usuario.carne < raiz.usuario.carne){
+            raiz.izquierdo = this.agregarUsuario(usuario, raiz.izquierdo);
+            if(this.altura(raiz.derecha)-this.altura(raiz.izquierda) == -2) {
+                if(usuario.carnet < raiz.izquierda.usuario.carnet) {
+                    raiz = this.reizq(raiz);
+                } else {
+                    raiz = this.rederizq(raiz);
+                }
+            }
+        }else if(usuario.carne > raiz.usuario.carne){
+            raiz.derecho = this.agregarUsuario(usuario, raiz.derecho);
+            if(this.altura(raiz.derecha)-this.altura(raiz.izquierda) == 2) {
+                if(usuario.carnet > raiz.derecha.usuario.carnet) {
+                    raiz = this.reder(raiz);
+                } else {
+                    raiz = this.rederder(raiz);
+                }
+            }
         }else{
-            if(raiz.carne === nodo.carne){
-                raiz.carne = nodo.carne
-            }else if(raiz.carne < nodo.carne){
-                raiz.derecho = this.insertarNodo(nodo, raiz.derecho)
-            }else{
-                raiz.izquierdo = this.insertarNodo(nodo, raiz.izquierdo)
-            }
+            raiz.usuario = usuario;
         }
+        raiz.altura = this.maximo(this.altura(raiz.izquierda), this.altura(raiz.derecha))+1;
         return raiz;
-    }
+    }   
 
-    insertar(objeto){
-        console.log(objeto)
-        this.raiz = this.insertarNodo(objeto,this.raiz)
-    }
-
-    recorridoPreorden(raiz){
-        var cadena = ""
-        if(raiz !== null){
-            cadena = cadena + "\""
-            cadena = cadena + raiz.carne
-            cadena = cadena + "\""
-            if(raiz.izquierdo !== null){
-                cadena = cadena + " -> "
-                cadena = cadena + this.recorridoPreorden(raiz.izquierdo)
-            }
-            if(raiz.derecho !== null){
-                cadena = cadena + " -> "
-                cadena = cadena + this.recorridoPreorden(raiz.derecho)
+    buscar(carne,password){
+        var temp = this.raiz;
+        while(temp != null){
+            if(temp.usuario.carne == carne && temp.usuario.password == password){
+                return true;
+            }else if(carne < temp.usuario.carne){
+                temp = temp.izquierdo;
+            }else{
+                temp = temp.derecho;
             }
         }
-        return cadena
+        return false;
     }
 
-    recorridoInorden(raiz){
-        var cadena = ""
-        if(raiz !== null){
-            if(raiz.izquierdo !== null){
-                cadena += this.recorridoInorden(raiz.izquierdo)
-                cadena += " -> "
-            }
-            cadena += "\""
-            cadena += raiz.carne
-            cadena += "\""
-            if(raiz.derecho !== null){
-                cadena += " -> "
-                cadena += this.recorridoInorden(raiz.derecho)
-            }
+    maximo(a,b){
+        if (a > b){
+            return a;
         }
-        return cadena
+        return b;
     }
 
-    recorridoPostOrden(raiz){
-        var cadena = ""
-        if(raiz !== null){
-            if(raiz.izquierdo !== null){
-                cadena += this.recorridoPostOrden(raiz.izquierdo)
-                cadena += " -> "
-            }
-            if(raiz.derecho !== null){
-                cadena += this.recorridoPostOrden(raiz.derecho)
-                cadena += " -> "
-            }
-            cadena += "\""
-            cadena += raiz.carne
-            cadena += "\""
+    altura(raiz){
+        if(raiz == null){
+            return -1;
         }
-        return cadena
+        return raiz.altura;
     }
 
-    recorridoArbol(){
-        console.log(this.recorridoInorden(this.raiz))
-        console.log(this.recorridoPreOrden(this.raiz))
-        console.log(this.recorridoPostOrden(this.raiz))
+    reizq(nodo) {
+        var aux = nodo.izquierda;
+        nodo.izquierda = aux.derecha;
+        aux.izquierda = nodo;
+        nodo.altura = this.maximo(this.altura(nodo.derecha), this.altura(nodo.izquierda))+1;
+        aux.altura = this.maximo(this.altura(nodo.derecha), nodo.altura)+1;
+        return aux;
     }
 
-    retornarcarneesArbol(raiz, id){
-        var cadena = "";
-        var numero = id + 1;
-        if(raiz !== null){
-            cadena += "\"";
-            cadena += raiz.carne;
-            cadena += "\" ;";
-            if(!(raiz.izquierdo === null) && !(raiz.derecho === null)){
-                cadena += " x" + numero + " [label=\"\",width=.1,style=invis];"
-                cadena += "\"";
-                cadena += raiz.carne;
-                cadena += "\" -> ";
-                cadena += this.retornarcarneesArbol(raiz.izquierdo, numero)
-                cadena += "\"";
-                cadena += raiz.carne;
-                cadena += "\" -> ";
-                cadena += this.retornarcarneesArbol(raiz.derecho, numero)
-                cadena += "{rank=same" + "\"" + raiz.izquierdo.carne + "\"" + " -> " + "\"" + raiz.derecho.carne + "\""  + " [style=invis]}; "
-            }else if(!(raiz.izquierdo === null) && (raiz.derecho === null)){
-                cadena += " x" + numero + " [label=\"\",width=.1,style=invis];"
-                cadena += "\"";
-                cadena += raiz.carne;
-                cadena += "\" -> ";
-                cadena += this.retornarcarneesArbol(raiz.izquierdo, numero)
-                cadena += "\"";
-                cadena += raiz.carne;
-                cadena += "\" -> ";
-                cadena += "x" + numero + "[style=invis]";
-                cadena += "{rank=same" + "\"" + raiz.izquierdo.carne + "\"" + " -> " + "x" + numero + " [style=invis]}; "
-            }else if((raiz.izquierdo === null) && !(raiz.derecho === null)){
-                cadena += " x" + numero + " [label=\"\",width=.1,style=invis];"
-                cadena += "\"";
-                cadena += raiz.carne;
-                cadena += "\" -> ";
-                cadena += "x" + numero + "[style=invis]";
-                cadena += "; \"";
-                cadena += raiz.carne;
-                cadena += "\" -> ";
-                cadena += this.retornarcarneesArbol(raiz.derecho, numero)
-                cadena += "{rank=same" + " x" + numero + " -> \"" + raiz.derecho.carne + "\"" +  " [style=invis]}; "
-            }
+    reder(nodo) {
+        var aux = nodo.derecha;
+        nodo.derecha = aux.izquierda;
+        aux.izquierda = nodo;
+        nodo.altura = this.maximo(this.altura(nodo.derecha), this.altura(nodo.izquierda))+1;
+        aux.altura = this.maximo(this.altura(nodo.derecha), nodo.altura)+1;
+        return aux;
+    }
+
+    rederizq(nodo) {
+        nodo.izquierda = this.reder(nodo);
+        return this.reder(nodo);
+    }
+
+    rederder(nodo) {
+        nodo.derecha = this.reizq(nodo);
+        return this.reder(nodo);
+    }
+/* ------------ IN-ORDEN  ------------ */
+    inOrden(nodo){
+         if(nodo != null){
+            this.inOrden(nodo.izquierdo);
+            this.inOrden(nodo.derecho);
         }
-        return cadena;
     }
 
-    graficarArbol(){
-        var cadena = ""
-        if(this.raiz !== null){
-            cadena += "digraph arbol {"
-            cadena += this.retornarcarneesArbol(this.raiz, 0)
-            cadena += "}"
-        }
-        return cadena
-    }
+    5
 
-    /** 
-     * Contenido de graficar los diferentes recorridos del arbol
-     */
-    recorridosArbol(){
-        console.log("Recorrido Pre-Orden")
-        let url = 'https://quickchart.io/graphviz?graph=';
-        let body = "digraph G { graph[label = \"Pre-Orden\" rankdir = LR labelloc = t]" + this.recorridoPreorden(this.raiz) + "}";
-        $("#image1").attr("src", url + body);
-        console.log("Recorrido In-Orden")
-        body = "digraph G { graph[label = \"In-Orden\" rankdir = LR labelloc = t]" + this.recorridoInorden(this.raiz) + "}";
-        $("#image2").attr("src", url + body);
-        console.log("Recorrido Post-Orden")
-        body = "digraph G { graph[label = \"Post-Orden\" rankdir = LR labelloc = t]" + this.recorridoPostOrden(this.raiz) + "}";
-        $("#image3").attr("src", url + body);
-    }
+/* ------------ PRE-ORDEN  ------------ */
 
-    eliminarTodo(){
-        this.raiz = null;
-    }
-
-}
-
-function agregarVarios(){
-    let carne = document.getElementById("carne").value
-    let carnees = carne.split(',')
-    try{
-        carnees.forEach(element => {
-            arbolBinario.insertarcarne(element)
-        });
-    }catch(error){
-        alert("Hubo un error")
-    }
-    refrescarArbol()
-}
-
-function agregarVariosNumeros(){
-    let carne = document.getElementById("carne").value
-    let carnees = carne.split(',')
-    try{
-        carnees.forEach(element => {
-            arbolBinario.insertarcarne(parseInt(element))
-        });
-    }catch(error){
-        alert("Hubo un error")
-    }
-    refrescarArbol();
-}
-
-function refrescarArbol(){
-    let url = 'https://quickchart.io/graphviz?graph=';
-    let body = arbolBinario.graficarArbol();
-    $("#image").attr("src", url + body);
-    document.getElementById("carne").value = "";
-}
-
-/**
- * Funcion para recorrer
- */
-function recorrerArbol(){
-    arbolBinario.recorridosArbol();
-}
-
-/**
- * Funcion para reiniciar el arbol
- */
-
-function limpiar(){
-    arbolBinario.eliminarTodo();
-    let url = 'https://quickchart.io/graphviz?graph=digraph G { raiz }';
-    $("#image").attr("src", url);
-    document.getElementById("carne").value = "";
 }
